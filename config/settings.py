@@ -37,10 +37,23 @@ INSTALLED_APPS = [
     "dj_rest_auth.registration",
     "allauth",
     "allauth.account",
+    "rest_framework_simplejwt",
 ]
 
 SITE_ID = 1
 AUTH_USER_MODEL = "users.User"
+REST_AUTH_REGISTER_SERIALIZERS = {
+    "REGISTER_SERIALIZER": "apps.users.serializers.CustomRegisterSerializer",
+}
+
+REST_FRAMEWORK = {
+    "DEFAULT_AUTHENTICATION_CLASSES": (
+        "dj_rest_auth.jwt_auth.JWTCookieAuthentication",
+    ),
+}
+
+REST_USE_JWT = True
+JWT_AUTH_COOKIE = "cookie"  # The cookie key name can be the one you want
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
