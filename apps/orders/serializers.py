@@ -1,8 +1,9 @@
 from rest_framework import serializers
+
 from .models import Order
 
 
-class OrderCreationSerializer(serializers.ModelSerializer):
+class OrderSerializer(serializers.ModelSerializer):
     order_status = serializers.HiddenField(default="PENDING")
     size = serializers.CharField(max_length=20)
     quantity = serializers.IntegerField()

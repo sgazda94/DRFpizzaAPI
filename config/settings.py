@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     "allauth",
     "allauth.account",
     "rest_framework_simplejwt",
+    "drf_yasg",
 ]
 
 SITE_ID = 1
